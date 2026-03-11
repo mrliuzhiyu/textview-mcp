@@ -173,7 +173,7 @@ TextView 云端 API
 ## 本地开发
 
 ```bash
-git clone https://github.com/fisherdaddy/textview-mcp.git
+git clone https://github.com/mrliuzhiyu/textview-mcp.git
 cd textview-mcp
 npm install
 npm run dev

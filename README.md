@@ -178,7 +178,7 @@ Your Documents (accessible from any device)
 ## Development
 
 ```bash
-git clone https://github.com/fisherdaddy/textview-mcp.git
+git clone https://github.com/mrliuzhiyu/textview-mcp.git
 cd textview-mcp
 npm install
 npm run dev
