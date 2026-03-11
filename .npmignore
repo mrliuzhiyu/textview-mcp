@@ -1,0 +1,6 @@
+src/
+tsconfig.json
+smithery.yaml
+.github/
+node_modules/
+.env

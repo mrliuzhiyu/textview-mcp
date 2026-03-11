@@ -1,0 +1,19 @@
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      token:
+        type: string
+        title: "TextView API Token"
+        description: "Your API token (starts with tv_). Get one at https://textview.cn"
+    required:
+      - token
+  commandFunction: |-
+    (config) => ({
+      command: 'npx',
+      args: ['-y', 'textview-mcp'],
+      env: {
+        TEXTVIEW_TOKEN: config.token
+      }
+    })

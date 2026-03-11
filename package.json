@@ -1,0 +1,46 @@
+{
+  "name": "textview-mcp",
+  "version": "1.0.1",
+  "description": "MCP server for TextView — persistent memory for AI agents. Save, search, and retrieve documents across AI sessions.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "textview-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "files": ["dist", "package.json", "README.md", "LICENSE"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fisherdaddy/textview-mcp.git"
+  },
+  "homepage": "https://github.com/fisherdaddy/textview-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/fisherdaddy/textview-mcp/issues"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.0.0",
+    "typescript": "~5.8.3"
+  },
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "textview",
+    "ai-memory",
+    "ai-agent",
+    "document-management",
+    "claude",
+    "cursor",
+    "windsurf"
+  ],
+  "license": "MIT"
+}
