@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="#quick-start">Quick Start</a> · <a href="#tools">Tools</a> · <a href="#use-cases">Use Cases</a> · <a href="./README_CN.md">中文文档</a>
+  <a href="#quick-start">Quick Start</a> · <a href="#tools">Tools</a> · <a href="#use-cases">Use Cases</a> · <a href="./README_CN.md">中文</a> · <a href="./README_JA.md">日本語</a> · <a href="./README_KO.md">한국어</a>
 </p>
 
 ---

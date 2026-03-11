@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="#快速开始">快速开始</a> · <a href="#可用工具">可用工具</a> · <a href="#使用场景">使用场景</a> · <a href="./README.md">English</a>
+  <a href="#快速开始">快速开始</a> · <a href="#可用工具">可用工具</a> · <a href="#使用场景">使用场景</a> · <a href="./README.md">English</a> · <a href="./README_JA.md">日本語</a> · <a href="./README_KO.md">한국어</a>
 </p>
 
 ---
