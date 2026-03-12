@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="#빠른-시작">빠른 시작</a> · <a href="#도구">도구</a> · <a href="#사용-사례">사용 사례</a> · <a href="./README.md">English</a> · <a href="./README_CN.md">中文</a>
+  <a href="#빠른-시작">빠른 시작</a> · <a href="#도구">도구</a> · <a href="#사용-사례">사용 사례</a> · <a href="./README.md">English</a> · <a href="./README_CN.md">中文</a> · <a href="./README_JA.md">日本語</a>
 </p>
 
 ---

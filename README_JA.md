@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <a href="#クイックスタート">クイックスタート</a> · <a href="#ツール">ツール</a> · <a href="#ユースケース">ユースケース</a> · <a href="./README.md">English</a> · <a href="./README_CN.md">中文</a>
+  <a href="#クイックスタート">クイックスタート</a> · <a href="#ツール">ツール</a> · <a href="#ユースケース">ユースケース</a> · <a href="./README.md">English</a> · <a href="./README_CN.md">中文</a> · <a href="./README_KO.md">한국어</a>
 </p>
 
 ---
