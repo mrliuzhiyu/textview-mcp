@@ -6,7 +6,7 @@ import { initToken, callApi } from './api.js';
 
 const server = new McpServer({
   name: 'textview-mcp',
-  version: '1.0.0',
+  version: '1.1.0',
 });
 
 // ── save_document ──────────────────────────────────────────
@@ -94,6 +94,60 @@ server.tool(
     const d = result.data as { id: string; title: string; updated_at: string };
     return {
       content: [{ type: 'text' as const, text: `文档已更新。\nID: ${d.id}\n标题: ${d.title}\n更新时间: ${d.updated_at}` }],
+    };
+  }
+);
+
+// ── save_memo ─────────────────────────────────────────────
+server.tool(
+  'save_memo',
+  '保存一条碎片记录到 TextView 记录区。适用于快速笔记、语音转文字、剪贴板内容等碎片化信息。',
+  {
+    content: z.string().describe('记录内容（纯文本）'),
+    source: z.string().optional().describe('来源标识: mcp / xiaozhi / cli / api（默认 mcp）'),
+    source_name: z.string().optional().describe('来源设备名称，如 "小智音箱"、"录音笔"'),
+  },
+  async ({ content, source, source_name }) => {
+    const result = await callApi('save_memo', {
+      content,
+      source: source || 'mcp',
+      source_name,
+    });
+    if (result.error) {
+      return { content: [{ type: 'text' as const, text: `保存失败: ${result.error}` }], isError: true };
+    }
+    const d = result.data as { id: string; content: string; source: string; created_at: string };
+    return {
+      content: [{ type: 'text' as const, text: `记录已保存。\nID: ${d.id}\n来源: ${d.source}\n时间: ${d.created_at}` }],
+    };
+  }
+);
+
+// ── list_memos ────────────────────────────────────────────
+server.tool(
+  'list_memos',
+  '查询 TextView 记录区的碎片记录，按时间倒序。',
+  {
+    limit: z.number().min(1).max(100).optional().describe('返回数量，默认 20'),
+    date: z.string().optional().describe('按日期过滤，格式 YYYY-MM-DD'),
+    source: z.string().optional().describe('按来源过滤: web / desktop / mcp / xiaozhi / cli / api'),
+  },
+  async ({ limit, date, source }) => {
+    const result = await callApi('list_memos', { limit, date, source });
+    if (result.error) {
+      return { content: [{ type: 'text' as const, text: `查询失败: ${result.error}` }], isError: true };
+    }
+    const memos = result.data as { id: string; content: string; source: string; source_name?: string; created_at: string }[];
+    if (!memos || memos.length === 0) {
+      return { content: [{ type: 'text' as const, text: '没有找到记录。' }] };
+    }
+    const list = memos.map((m, i) => {
+      const src = m.source_name ? `${m.source}(${m.source_name})` : m.source;
+      const preview = m.content.length > 80 ? m.content.slice(0, 80) + '...' : m.content;
+      return `${i + 1}. [${src}] ${preview}  (${m.created_at})`;
+    }).join('\n');
+    return {
+      content: [{ type: 'text' as const, text: `共 ${memos.length} 条记录:\n${list}` }],
     };
   }
 );
